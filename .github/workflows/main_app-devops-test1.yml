@@ -33,7 +33,8 @@ jobs:
           path: ${{env.APP_PATH}}/myapp
 
   deploy:
-    runs-on: windows-latest
+    # runs-on: ubuntu-latest
+    runs-on: [self-hosted, linux]    
     needs: build
     environment:
       name: 'Production'
