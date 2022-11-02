@@ -2,10 +2,6 @@ name: Build and Push image to Azure Container Registry
 
 on:
   workflow_dispatch:
-    inputs:
-      imageTag:
-        description: Tag
-        required: true
 
 jobs:
   docker-build-and-push:
