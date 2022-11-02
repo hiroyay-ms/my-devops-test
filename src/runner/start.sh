@@ -6,7 +6,7 @@ OWNER=hiroyay-ms
 REPO=my-devops-test
 RUNNER_NAME=runner-1
 
-REG_TOKEN=$$(curl -sX POST -H "Authorization: token ${ACCESS_TOKEN}" https://api.github.com/repos/${OWNER}/${REPO}/actions/runners/registration-token | jq .token --raw-output)
+REG_TOKEN=$(curl -sX POST -H "Authorization: token ${ACCESS_TOKEN}" https://api.github.com/repos/${OWNER}/${REPO}/actions/runners/registration-token | jq .token --raw-output)
 
 cd /home/runner/actions-runner
 
