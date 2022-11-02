@@ -1,10 +1,10 @@
 #!/bin/bash
 
-ACCESS_TOKEN=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
+ACCESS_TOKEN=$GH_TOKEN
 
-OWNER=hiroyay-ms
-REPO=my-devops-test
-RUNNER_NAME=runner-1
+OWNER=$GH_OWNER
+REPO=$GH_REPOSITORY
+RUNNER_NAME=$GH_RUNNER
 
 REG_TOKEN=$(curl -sX POST -H "Authorization: token ${ACCESS_TOKEN}" https://api.github.com/repos/${OWNER}/${REPO}/actions/runners/registration-token | jq .token --raw-output)
 
