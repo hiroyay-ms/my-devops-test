@@ -38,5 +38,5 @@ jobs:
         uses: azure/CLI@v1
         with:
           inlineScript: |
+            #!/bin/bash
             vnetId=$(az network vnet show -g ${{ github.event.inputs.resourceGroup }} -n ${{ github.event.inputs.virtualNetwork }})
-            $vnetId
