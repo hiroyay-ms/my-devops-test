@@ -45,4 +45,5 @@ jobs:
             #!/bin/bash
             vnetId=$(az network vnet show -g ${{ github.event.inputs.resourceGroup }} -n ${{ github.event.inputs.virtualNetwork }} --query id --output tsv)
             subnetId=$(az network vnet subnet show -g ${{ github.event.inputs.resourceGroup }} --vnet-name ${{ github.event.inputs.virtualNetwork }} -n ${{ github.event.inputs.subnet }} --query id --output tsv)
+            $subnetId
 
