@@ -25,6 +25,6 @@ COPY start.sh start.sh
 
 RUN chmod +x start.sh
 
-USER runner
+# USER runner
 
-ENTRYPOINT [ "./start.sh" ]
+# ENTRYPOINT [ "./start.sh" ]
