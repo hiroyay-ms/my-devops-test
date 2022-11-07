@@ -27,5 +27,4 @@ RUN chmod +x start.sh
 
 USER runner
 
-CMD [ "/bin/bash" ]
-# ENTRYPOINT [ "./start.sh" ]
+ENTRYPOINT [ "./start.sh" ]
