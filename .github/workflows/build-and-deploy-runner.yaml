@@ -1,0 +1,24 @@
+name: Create a GitHub Self-Hosted runner container
+
+on:
+  workflow_dispatch:
+    inputs:
+      deploy-aci:
+        description: ''
+        required: true
+        type: boolean
+
+jobs:
+  build-and-push-image:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Echo
+        run: echo "build and push image"
+
+  deploy-new-aci:
+    if: ${{ github.event.inputs.deploy-aci == 'true' }}
+    runs-on: ubuntu-latest
+    needs: build-and-push-image
+    steps:
+      - name: Echo2
+        run: echo "deploy-new-aci"
