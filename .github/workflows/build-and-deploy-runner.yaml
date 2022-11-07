@@ -4,9 +4,17 @@ on:
   workflow_dispatch:
     inputs:
       deploy-aci:
-        description: ''
+        description: 'Azure Container Instances の展開有無'
         required: true
         type: boolean
+      resourceGroup:
+        description: 'Resource Group 名'
+        required: false
+        type: string
+      virtualNetwork:
+        description: '仮想ネットワーク名'
+        required: false
+        type: string
 
 jobs:
   build-and-push-image:
@@ -19,6 +27,15 @@ jobs:
     if: ${{ github.event.inputs.deploy-aci == 'true' }}
     runs-on: ubuntu-latest
     needs: build-and-push-image
+
     steps:
-      - name: Echo2
-        run: echo "deploy-new-aci- ${{ github.sha }}"
+      - name: Log in with Azure
+        uses: azure/login@v1
+        with:
+          creds: ${{ secrets.AZURE_CREDENTIALS }}
+    
+    steps:
+      - name: Azure CLI script
+        uses: azure/CLI@v1
+        inlineScript: |
+          az network vnet show -g ${{ github.event.inputs.resourceGroup }} -n ${{ github.event.inputs.virtualNetwork }}
