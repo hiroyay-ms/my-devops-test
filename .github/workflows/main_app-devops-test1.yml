@@ -9,7 +9,7 @@ env:
 jobs:
   build:
     # runs-on: ubuntu-latest
-    runs-on: [self-hosted, linux]
+    runs-on: [self-hosted, Linux, X64, container]
 
     steps:
       - uses: actions/checkout@v2
