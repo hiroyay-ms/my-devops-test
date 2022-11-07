@@ -8,11 +8,15 @@ on:
         required: true
         type: boolean
       resourceGroup:
-        description: 'Resource Group 名'
+        description: 'リソース グループ名'
         required: false
         type: string
       virtualNetwork:
         description: '仮想ネットワーク名'
+        required: false
+        type: string
+      subnet:
+        description: 'サブネット名'
         required: false
         type: string
 
@@ -39,4 +43,6 @@ jobs:
         with:
           inlineScript: |
             #!/bin/bash
-            vnetId=$(az network vnet show -g ${{ github.event.inputs.resourceGroup }} -n ${{ github.event.inputs.virtualNetwork }})
+            vnetId=$(az network vnet show -g ${{ github.event.inputs.resourceGroup }} -n ${{ github.event.inputs.virtualNetwork }} --query id --output tsv)
+            subnetId=$(az network vnet subnet show -g ${{ github.event.inputs.resourceGroup }} --vnet-name ${{ github.event.inputs.virtualNetwork }} -n ${{ github.event.inputs.subnet }} --query id --output tsv)
+            $subnetId
