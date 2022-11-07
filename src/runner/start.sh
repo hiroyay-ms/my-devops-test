@@ -4,7 +4,9 @@ ACCESS_TOKEN=$GH_TOKEN
 
 OWNER=$GH_OWNER
 REPO=$GH_REPOSITORY
-RUNNER_NAME=$GH_RUNNER
+
+RUNNER_SUFFIX=$(cat /dev/urandom | tr -dc 'a-z0-9' | fold -w 5 | head -n 1)
+RUNNER_NAME="aci-runner-${RUNNER_SUFFIX}"
 
 REG_TOKEN=$(curl -sX POST -H "Authorization: token ${ACCESS_TOKEN}" https://api.github.com/repos/${OWNER}/${REPO}/actions/runners/registration-token | jq .token --raw-output)
 
