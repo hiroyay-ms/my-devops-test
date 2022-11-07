@@ -38,4 +38,4 @@ jobs:
       - name: Azure CLI script
         uses: azure/CLI@v1
         inlineScript: |
-          az network vnet show -g ${{ github.event.inputs.resourceGroup }} -n ${{ github.event.inputs.virtualNetwork }}
+          az network vnet show -g rg-Pre-Workshop -n vnet-1
