@@ -38,4 +38,5 @@ jobs:
         uses: azure/CLI@v1
         with:
           inlineScript: |
-            az network vnet show -g ${{ github.event.inputs.resourceGroup }} -n ${{ github.event.inputs.virtualNetwork }}
+            vnetId=$(az network vnet show -g ${{ github.event.inputs.resourceGroup }} -n ${{ github.event.inputs.virtualNetwork }})
+            $vnetId
