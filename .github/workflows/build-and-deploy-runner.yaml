@@ -13,7 +13,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Echo
-        run: echo "build and push image"
+        run: echo "build and push image- ${{ github.sha }}"
 
   deploy-new-aci:
     if: ${{ github.event.inputs.deploy-aci == 'true' }}
@@ -21,4 +21,4 @@ jobs:
     needs: build-and-push-image
     steps:
       - name: Echo2
-        run: echo "deploy-new-aci"
+        run: echo "deploy-new-aci- ${{ github.sha }}"
