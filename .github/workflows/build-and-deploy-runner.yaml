@@ -4,7 +4,7 @@ on:
   workflow_dispatch:
     inputs:
       deploy-aci:
-        description: 'Azure Container Instances の展開有無'
+        description: 'Azure Container Instances の展開'
         required: true
         type: boolean
       resourceGroup:
