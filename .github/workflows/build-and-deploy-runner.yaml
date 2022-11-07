@@ -33,9 +33,8 @@ jobs:
         uses: azure/login@v1
         with:
           creds: ${{ secrets.AZURE_CREDENTIALS }}
-    
-    steps:
+
       - name: Azure CLI script
         uses: azure/CLI@v1
         inlineScript: |
-          az network vnet show -g rg-Pre-Workshop -n vnet-1
+          az network vnet show -g ${{ github.event.inputs.resourceGroup }} -n ${{ github.event.inputs.virtualNetwork }}
