@@ -23,6 +23,14 @@ on:
         description: 'コンテナー グループ名'
         required: false
         type: string
+      gh_owner:
+        description: 'GitHub アカウント'
+        required: false
+        type: string
+      gh_repository:
+        description: 'リポジトリ'
+        required: false
+        type: string
 
 jobs:
   build-and-push-image:
@@ -68,6 +76,6 @@ jobs:
               --registry-login-server ${{ secrets.REGISTRY_LOGINSERVER }} \
               --registry-username ${{ secrets.REGISTRY_USERNAME }} \
               --registry-password ${{ secrets.REGISTRY_PASSWORD }} \
+              environment-variables GH_TOKEN="${{ secrets.GH_TOKEN }}" GH_OWNER="${{ github.event.inputs.gh_owner }}" GH_REPOSITORY="${{ github.event.inputs.gh_repository }}" \
               --vnet $vnetId \
               --subnet $subnetId
-
