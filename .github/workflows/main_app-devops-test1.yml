@@ -8,8 +8,8 @@ env:
 
 jobs:
   build:
-    runs-on: ubuntu-latest
-    #runs-on: [self-hosted, Linux, X64, container]
+    #runs-on: ubuntu-latest
+    runs-on: [self-hosted, Linux, X64, container]
 
     steps:
       - uses: actions/checkout@v2
@@ -33,8 +33,8 @@ jobs:
           path: ${{env.APP_PATH}}/myapp
 
   deploy:
-    runs-on: ubuntu-latest
-    #runs-on: [self-hosted, linux]    
+    #runs-on: ubuntu-latest
+    runs-on: [self-hosted, linux]    
     needs: build
     environment:
       name: 'Production'
