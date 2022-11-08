@@ -8,7 +8,7 @@ env:
 
 jobs:
   build:
-    # runs-on: ubuntu-latest
+    #runs-on: ubuntu-latest
     runs-on: [self-hosted, Linux, X64, container]
 
     steps:
@@ -33,7 +33,7 @@ jobs:
           path: ${{env.APP_PATH}}/myapp
 
   deploy:
-    # runs-on: ubuntu-latest
+    #runs-on: ubuntu-latest
     runs-on: [self-hosted, linux]    
     needs: build
     environment:
