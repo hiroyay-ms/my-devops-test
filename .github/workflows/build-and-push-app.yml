@@ -2,6 +2,7 @@ name: Build and deploy app to Azure Container Registry
 
 on:
   workflow_dispatch:
+    inputs:
       resourceGroup:
         description: 'リソース グループ名'
         required: true
