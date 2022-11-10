@@ -41,6 +41,8 @@ jobs:
         with:
           name: .net-app
           path: release
+
+      - uses: actions/checkout@v2
       
       - name: Run
         run: |
