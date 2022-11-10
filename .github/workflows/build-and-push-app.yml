@@ -36,14 +36,14 @@ jobs:
     needs: build
 
     steps:
+      - uses: actions/checkout@v2
+      
       - name: Download artifact from build job
         uses: actions/download-artifact@v2
         with:
           name: .net-app
           path: release
 
-      - uses: actions/checkout@v2
-      
       - name: Run
         run: |
           pwd
