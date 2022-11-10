@@ -41,3 +41,7 @@ jobs:
         with:
           name: .net-app
           path: release
+      
+      - name: Run
+        run: |
+          pwd
