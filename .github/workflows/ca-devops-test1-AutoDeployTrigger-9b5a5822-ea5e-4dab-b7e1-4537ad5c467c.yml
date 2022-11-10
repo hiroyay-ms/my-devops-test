@@ -2,14 +2,6 @@ name: Trigger auto deployment for ca-devops-test1
 
 # When this action will be executed
 on:
-  # Automatically trigger it when detected changes in repo
-  push:
-    branches: 
-      [ main ]
-    paths:
-    - 'dockerfiles/app/dockerfile/**'
-    - '.github/workflows/ca-devops-test1-AutoDeployTrigger-9b5a5822-ea5e-4dab-b7e1-4537ad5c467c.yml'
-
   # Allow mannually trigger 
   workflow_dispatch:      
 
