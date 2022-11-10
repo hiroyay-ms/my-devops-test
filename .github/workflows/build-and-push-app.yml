@@ -44,10 +44,14 @@ jobs:
           name: .net-app
           path: release
 
-      - name: Run
+      - name: Login via Azure Container Registry
+        uses: azure/docker-login@v1
+        with:
+          login-server: ${{ secrets.REGISTRY_LOGINSERVER }}
+          username: ${{ secrets.REGISTRY_USERNAME }}
+          password: ${{ secrets.REGISTRY_PASSWORD }}
+
+      - name: Docker build and push
         run: |
-          pwd
-          ls
-          cd ..
-          pwd
-          ls
+          docker build . -t ${{ secrets.REGISTRY_LOGINSERVER }}/dotnet-app:${{ github.sha }} -f ./dockerfiles/app/dockerfile
+          docker push ${{ secrets.REGISTRY_LOGINSERVER }}/dotnet-app:${{ github.sha }}
