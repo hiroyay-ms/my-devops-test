@@ -45,3 +45,5 @@ jobs:
       - name: Run
         run: |
           pwd
+          cd ./release
+          ls
