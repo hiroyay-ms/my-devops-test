@@ -57,6 +57,11 @@ jobs:
       - name: Run Microsoft Security DevOps Analysis
         uses: microsoft/security-devops-action@preview
         id: msdo
+        env:
+          GDN_TRIVY_ACTION: "image"
+          GDN_TRIVY_TARGET: ${{ secrets.REGISTRY_LOGINSERVER }}/app:${{ github.sha }}
+        with:
+          categories: "containers"
 
       # Upload alerts to the Security tab
       - name: Upload alerts to Security tab
