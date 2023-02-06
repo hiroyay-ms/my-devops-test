@@ -19,7 +19,7 @@ jobs:
           password: ${{ secrets.REGISTRY_PASSWORD }}
 
       - name: Docker build
-        run: docker build ./src/runner -t ${{ secrets.REGISTRY_LOGINSERVER }}/gh_runner:${{ github.sha }} -f ./src/runner/dockerfile
+        run: docker build ./src/runner -t ${{ secrets.REGISTRY_LOGINSERVER }}/app_test:${{ github.sha }} -f ./src/runner/dockerfile
 
       - name: Run Microsoft Security DevOps Analysis
         uses: microsoft/security-devops-action@preview
@@ -32,4 +32,4 @@ jobs:
           sarif_file: ${{ steps.msdo.outputs.sarifFile }}
         
       - name: Docker push
-        run: docker push ${{ secrets.REGISTRY_LOGINSERVER }}/gh_runner:${{ github.sha }}
+        run: docker push ${{ secrets.REGISTRY_LOGINSERVER }}/app_test:${{ github.sha }}
