@@ -7,16 +7,14 @@ jobs:
 
     # MSDO runs on windows-latest and ubuntu-latest.
     # macos-latest supporting coming soon
-    runs-on: windows-latest
+    runs-on: ubuntu-latest
 
     steps:
     - uses: actions/checkout@v2
 
     - uses: actions/setup-dotnet@v1
       with:
-        dotnet-version: |
-          5.0.x
-          6.0.x
+        dotnet-version: '6.0.x'
 
     # Run analyzers
     - name: Run Microsoft Security DevOps Analysis
