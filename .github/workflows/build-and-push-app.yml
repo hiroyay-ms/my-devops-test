@@ -59,7 +59,7 @@ jobs:
         id: msdo
         env:
           GDN_TRIVY_ACTION: "image"
-          GDN_TRIVY_TARGET: ${{ secrets.REGISTRY_LOGINSERVER }}/app:${{ github.sha }}
+          GDN_TRIVY_TARGET: ${{ secrets.REGISTRY_LOGINSERVER }}/dotnet-app:${{ github.sha }}
         with:
           categories: "containers"
 
